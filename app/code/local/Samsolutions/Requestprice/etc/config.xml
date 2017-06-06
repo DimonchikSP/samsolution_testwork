@@ -12,9 +12,9 @@
 -->
 <config>
     <modules>
-        <SamSolutions_RequestPrice>
+        <Samsolutions_Requestprice>
             <version>0.1.0</version>
-        </SamSolutions_RequestPrice>
+        </Samsolutions_Requestprice>
     </modules>
     <global>
         <helpers>
@@ -45,7 +45,7 @@
         <resources>
             <requestprice_setup>
                 <setup>
-                    <module>SamSolutions_RequestPrice</module>
+                    <module>Samsolutions_Requestprice</module>
                 </setup>
                 <connection>
                     <use>core_setup</use>
@@ -63,6 +63,16 @@
             </requestprice_read>
         </resources>
     </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <requestprice module="Samsolutions_Requestprice">
+                    <file>samsolutions/samsolutions_requestprice.xml</file>
+                </requestprice>
+            </updates>
+        </layout>
+    </frontend>
     <adminhtml>
         <layout>
             <updates>
