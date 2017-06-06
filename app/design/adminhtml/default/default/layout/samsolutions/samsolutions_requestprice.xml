@@ -3,13 +3,17 @@
 /**
  * Layout for backend
  *
- * @category	SamSolutions
- * @package 	SamSolutions_RequestPrice
+ * @category	Samsolutions
+ * @package 	Samsolutions_RequestPrice
  * @author  	Shitikov Dmitry <shitikovda@gmail.com>
  * @description Test for position Magento developer
  * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 -->
 <layout>
-
+    <adminhtml_requestprice_index>
+        <reference name="content">
+            <block type="requestprice/adminhtml_requestprice" name="requestprice"></block>
+        </reference>
+    </adminhtml_requestprice_index>
 </layout>
