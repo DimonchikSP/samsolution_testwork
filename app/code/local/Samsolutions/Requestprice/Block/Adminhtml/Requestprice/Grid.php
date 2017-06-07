@@ -26,9 +26,9 @@ class Samsolutions_Requestprice_Block_Adminhtml_Requestprice_Grid extends Mage_A
         parent::__construct();
         $this->setId('requestpriceGrid');
         $this->_controller  = 'adminhtml_requestprice';
-        $this->setUseAjax(true);
         $this->setDefaultSort('entity_id');
-        $this->setDefaultDir('requestprice');
+        $this->setDefaultDir('ASC');
+        $this->setUseAjax(true);
     }
 
     protected function _prepareCollection()
@@ -73,7 +73,7 @@ class Samsolutions_Requestprice_Block_Adminhtml_Requestprice_Grid extends Mage_A
             'header'        => $helper->__('Status'),
             'index'         => 'status',
             'filter_index'  => 'status',
-            'options' => Mage::getSingleton('sales/order_config')->getStatuses()
+            'type'          => 'text'
         ));
         $this->addColumn('action', array(
             'header'    => $helper->__('Action'),
@@ -102,5 +102,9 @@ class Samsolutions_Requestprice_Block_Adminhtml_Requestprice_Grid extends Mage_A
         ));
 
         return $url;
+    }
+    public function getGridUrl()
+    {
+        return $this->getUrl('*/*/grid', array('_current' => true));
     }
 }

@@ -39,7 +39,7 @@ $table = $installer->getConnection()->newTable($this->getTable('requestprice/req
     ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_DATE, null,array(
         'nullable'          => false
     ), 'Created At')
-    ->addColumn('status', Varien_Db_Ddl_Table::TYPE_INTEGER, 1, array(
+    ->addColumn('status', Varien_Db_Ddl_Table::TYPE_VARCHAR, 10, array(
         'nullable'          => false
     ), 'Request price status')
     ->addColumn('sku', Varien_Db_Ddl_Table::TYPE_VARCHAR, 64, array(
