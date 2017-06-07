@@ -1,0 +1,31 @@
+<?php
+/**
+ * SamSolutions
+ *
+ * PHP Version 5.6.30
+ *
+ * @category    SamSolutions
+ * @package     SamSolutions_RequestPrice
+ * @author      Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+/**
+ * Template for Samsolutions_Requestprice
+ *
+ * @category    SamSolutions
+ * @package     SamSolutions_RequestPrice
+ * @author      Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+?>
+<?php
+$productSku = Mage::registry('current_sku');
+$url = Mage::getUrl('requestprice/index/saverequest');
+?>
+<script type="text/javascript">
+    var urlToAjax = '<?php echo $url ?>';
+    var product = '<?php echo $productSku ?>';
+</script>
+<button class="button" id="requestprice">Request price</button>

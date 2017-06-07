@@ -63,8 +63,27 @@
             </requestprice_read>
         </resources>
     </global>
-
     <frontend>
+        <events>
+            <catalog_product_load_after>
+                <observers>
+                    <custom_checkout_observer>
+                        <type>singleton</type>
+                        <class>Samsolutions_Requestprice_Model_Observer</class>
+                        <method>changePriceBlock</method>
+                    </custom_checkout_observer>
+                </observers>
+            </catalog_product_load_after>
+        </events>
+        <routers>
+            <requestprice>
+                <use>standard</use>
+                <args>
+                    <module>Samsolutions_Requestprice</module>
+                    <frontName>requestprice</frontName>
+                </args>
+            </requestprice>
+        </routers>
         <layout>
             <updates>
                 <requestprice module="Samsolutions_Requestprice">

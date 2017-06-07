@@ -2,3 +2,16 @@
 */
 !app/code/local/SamSolution/*
 !app/etc/modules/SamSolution_RequestPrice.xml
+/app/code/core/
+/app/design/
+/app/etc/
+/lib/
+/js/
+/shell/
+/downloader/
+/includes/
+/media/
+/skin/
+/errors/
+/var/
+/dev/
