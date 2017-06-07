@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Main config of module
+ *
+ * @category	SamSolutions
+ * @package 	SamSolutions_RequestPrice
+ * @author  	Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<config>
+    <modules>
+        <Samsolutions_Requestprice>
+            <version>0.1.0</version>
+        </Samsolutions_Requestprice>
+    </modules>
+    <global>
+        <helpers>
+            <requestprice>
+                <class>Samsolutions_Requestprice_Helper</class>
+            </requestprice>
+        </helpers>
+        <blocks>
+            <requestprice>
+                <class>Samsolutions_Requestprice_Block</class>
+            </requestprice>
+        </blocks>
+        <models>
+            <requestprice>
+                <class>Samsolutions_Requestprice_Model</class>
+                <resourceModel>requestprice_resource</resourceModel>
+                <deprecatedNode>samsolutions_requestprice_mysql4</deprecatedNode>
+            </requestprice>
+            <requestprice_resource>
+                <class>Samsolutions_Requestprice_Model_Resource</class>
+                <entities>
+                    <requestprice>
+                        <table>samsolutions_requestprice</table>
+                    </requestprice>
+                </entities>
+            </requestprice_resource>
+        </models>
+        <resources>
+            <requestprice_setup>
+                <setup>
+                    <module>Samsolutions_Requestprice</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </requestprice_setup>
+            <requestprice_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </requestprice_write>
+            <requestprice_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </requestprice_read>
+        </resources>
+    </global>
+    <frontend>
+        <events>
+            <catalog_product_load_after>
+                <observers>
+                    <custom_checkout_observer>
+                        <type>singleton</type>
+                        <class>Samsolutions_Requestprice_Model_Observer</class>
+                        <method>changePriceBlock</method>
+                    </custom_checkout_observer>
+                </observers>
+            </catalog_product_load_after>
+        </events>
+        <routers>
+            <requestprice>
+                <use>standard</use>
+                <args>
+                    <module>Samsolutions_Requestprice</module>
+                    <frontName>requestprice</frontName>
+                </args>
+            </requestprice>
+        </routers>
+        <layout>
+            <updates>
+                <requestprice module="Samsolutions_Requestprice">
+                    <file>samsolutions/samsolutions_requestprice.xml</file>
+                </requestprice>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <requestprice>
+                    <file>samsolutions/samsolutions_requestprice.xml</file>
+                </requestprice>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <requestprice before="Mage_Adminhtml">Samsolutions_Requestprice_Adminhtml</requestprice>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

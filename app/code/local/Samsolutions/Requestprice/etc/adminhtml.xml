@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Adminhtml config of module
+ *
+ * @category	Samsolutions
+ * @package 	Samsolutions_RequestPrice
+ * @author  	Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<config>
+    <menu>
+        <customer>
+            <children>
+                <request_price module="requestprice">
+                    <title>Price requests</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/requestprice</action>
+                </request_price>
+            </children>
+        </customer>
+    </menu>
+</config>

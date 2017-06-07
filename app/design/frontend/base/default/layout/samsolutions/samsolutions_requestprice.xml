@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Frontend layout
+ *
+ * @category	SamSolutions
+ * @package 	SamSolutions_RequestPrice
+ * @author  	Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="alert.urls">
+            <block type="core/template" name="testresuest" template="samsolutions/requestprice.phtml" after="-"/>
+        </reference>
+    </catalog_product_view>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addJs"><script>samsolutions/requestprice/ajax.js</script></action>
+            <action method="addCss"><script>css/samsolutions/requestprice.css</script></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="requestprice.form">
+                <action method="setTemplate">
+                    <template>samsolutions/form.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout>

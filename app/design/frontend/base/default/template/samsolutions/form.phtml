@@ -1,0 +1,80 @@
+<?php
+/**
+ * SamSolutions
+ *
+ * PHP Version 5.6.30
+ *
+ * @category    SamSolutions
+ * @package     SamSolutions_RequestPrice
+ * @author      Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+/**
+ * Template for Samsolutions_Requestprice
+ *
+ * @category    SamSolutions
+ * @package     SamSolutions_RequestPrice
+ * @author      Shitikov Dmitry <shitikovda@gmail.com>
+ * @description Test for position Magento developer
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+?>
+<div id="popup" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="form-request">
+            <form id="requestprice-form" method="post">
+                <div class="field">
+                    <label for="name"><?php echo $this->__("Name"); ?></label>
+                    <input name="name" class="required-entry" type="text" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email"><?php echo $this->__("Email"); ?></label>
+                    <input name="email" class="required-entry validate-email" type="email" id="email" />
+                </div>
+                <div class="field">
+                    <label for="comment"><?php echo $this->__("Content"); ?></label>
+                    <textarea name="comment" id="comment"></textarea>
+                </div>
+                <input form="requestprice-form" id="send-request" class="button" type="button" value="Send request">
+            </form>
+        </div>
+    </div>
+    <div id="requestprice-message"></div>
+</div>
+<script type="text/javascript">
+    "use strict";
+    var modal = document.querySelector('#popup');
+    var btn = document.querySelector('#requestprice');
+    var btnSendRequest = document.querySelector('#send-request');
+    var span = document.querySelector('#popup > div > span');
+    btn.addEventListener('click', function (event) {
+        event.preventDefault();
+    });
+    btnSendRequest.addEventListener('click', function (event) {
+        var formToValidate = document.getElementById('requestprice-form');
+        var validator = new Validation(formToValidate);
+        if(validator.validate()) {
+            var params = new Object();
+            params.name = formToValidate.elements['name'].value;
+            params.email = formToValidate.elements['email'].value;
+            params.comment = formToValidate.elements['comment'].value;
+            params.sku = product;
+            urlToAjax = urlToAjax + "?" + objectToUrlParams(params);
+            ajaxCall();
+        }
+
+    });
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
